@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Players Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .player-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .player-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+            transition: 1s all;
+        }
+
+        .player-card:hover {
+            scale: 1.1;
+            /* background: linear-gradient(90deg, #FF9933, white, #138808); */
+        }
+
+        /* Hover effect for specific players */
+        .player-rohit:hover {
+            background: linear-gradient(90deg, #FF9933, white, #138808);
+        }
+
+        .player-virat:hover {
+            background: linear-gradient(90deg, #FF9933, white, #138808);
+        }
+
+        .player-joe:hover {
+            background: linear-gradient(90deg, #FFFFFF, #C8102E, #012169);
+        }
+
+        .player-steve:hover {
+            background: linear-gradient(90deg, #00008B, #FFFFFF, #FF0000);
+        }
+
+        .player-kane:hover {
+            background: linear-gradient(90deg, #012169, #FFFFFF, #C8102E);
+        }
+
+        .player-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cricket Players Information</h1>
+    <div class="player-container" id="players"></div>
+
+    <script>
+        const players = [
+            { name: "Rohit Sharma", team: "India", role: "Batsman", image: "https://crictoday.com/wp-content/uploads/2022/03/Rohit-Sharma.jpg", id: "rohit" },
+            { name: "Virat Kohli", team: "India", role: "Batsman", image: "https://i.pinimg.com/736x/1b/28/2c/1b282ce29d313ab6f03b311fb3d5033f.jpg", id: "virat" },
+            { name: "Joe Root", team: "England", role: "Batsman", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8emdRlxXPaw4zjFGnmZ2DB9hdFojfgJau7g&s", id: "joe" },
+            { name: "Steve Smith", team: "Australia", role: "Batsman", image: "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202412/steve-smith-271918768-3x4.jpg?VersionId=ngSocMfDnW.ZNiCpmfgH17.JDO3lBdTP", id: "steve" },
+            { name: "Kane Williamson", team: "New Zealand", role: "Batsman", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdX4rI8jNyU6r2MZ7xqaehgKD14NwGliFq90f0OnHXwdCWmY014W38i6tdstWsZOWtx0w&usqp=CAU", id: "kane" }
+        ];
+
+        const container = document.getElementById('players');
+        players.forEach(player => {
+            const card = document.createElement('div');
+            card.classList.add('player-card', `player-${player.id}`);  // Add unique class based on player ID
+            card.innerHTML = `
+                <img src="${player.image}" alt="${player.name}">
+                <h3>${player.name}</h3>
+                <p>Team: ${player.team}</p>
+                <p>Role: ${player.role}</p>
+            `;
+            container.appendChild(card);
+        });
+    </script>
+</body>
+
+</html>
